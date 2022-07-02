@@ -6,8 +6,8 @@ import org.example.minimarker.invoice.values.Date;
 
 import static java.time.LocalDate.now;
 
-public class InvoiceChange extends EventChange {
-    public InvoiceChange(Invoice invoice) {
+public class InvoiceChange  extends EventChange {
+    public InvoiceChange(Invoice invoice)  {
 
         apply((InvoiceCreated event)->{
             invoice.date = new Date(now().getDayOfMonth(),now().getMonthValue(), now().getYear());
@@ -26,10 +26,24 @@ public class InvoiceChange extends EventChange {
         });
 
         apply((PaymentMethodUpdated event)->{
+            if(!invoice.payment.identity().equals(event.paymentId())) {
+                try {
+                    throw new IllegalAccessException("Aun no hay pago para esta factura");
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            }
             invoice.updatePaymentMethod(event.paymentId(), event.method());
         });
 
         apply((PaymentValueUpdated event)->{
+            if(!invoice.payment.identity().equals(event.paymentId())) {
+                try {
+                    throw new IllegalAccessException("Aun no hay pago para esta factura");
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            }
             invoice.updatePaymentValue(event.paymentId(), event.value());
         });
 

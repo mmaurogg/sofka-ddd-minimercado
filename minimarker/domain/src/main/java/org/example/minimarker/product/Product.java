@@ -31,6 +31,7 @@ public class Product extends AggregateEvent<ProductId> {
         super(productId);
         this.name = name;
         this.valueProduct = valueProduct;
+        subscribe(new productChange(this));
         appendChange(new  ProductCreated(productId, name, valueProduct));
     }
 

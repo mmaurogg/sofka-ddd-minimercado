@@ -14,14 +14,15 @@ public class ClienChange extends EventChange {
     public ClienChange(Client client){
 
         apply((ClientCreated event)->{
-            client.name = event.name();
+            client.name = event.getName();
+            client.location = new Location(event.getLocationId(), event.getAddress());
+            client.account = null;
             try {
-                client.credit = new Credit(new CreditId(), new Amount(0.0));
                 client.classification = new Classification(new ClassificationId());
+                client.credit = new Credit(new CreditId(), new Amount(0.0));
             } catch (IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
-            client.location = event.location();
         });
 
         apply((ScoreCalculated event) ->{

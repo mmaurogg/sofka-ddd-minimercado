@@ -15,9 +15,9 @@ public class Client extends AggregateEvent<ClientId> {
     protected Credit credit;
     protected Account account;
 
-    public Client(ClientId clientId, NameClient name, Location location) {
+    public Client(ClientId clientId, NameClient name, LocationId locationId, Address address) {
         super(clientId);
-        appendChange(new ClientCreated(name, location)).apply();
+        appendChange(new ClientCreated(name, locationId, address)).apply();
         subscribe(new ClienChange(this));
     }
 

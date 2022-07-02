@@ -5,13 +5,13 @@ import org.example.minimarker.product.values.Name;
 import org.example.minimarker.product.values.ProductId;
 import org.example.minimarker.product.values.ValueProduct;
 
-public class CreateProduct extends Command {
+public class CreateProductCommand extends Command {
 
     private final ProductId productId;
     private final Name name;
     private final ValueProduct valueProduct;
 
-    public CreateProduct(ProductId productId, Name name, ValueProduct valueProduct) {
+    public CreateProductCommand(ProductId productId, Name name, ValueProduct valueProduct) {
         this.productId = productId;
         this.name = name;
         this.valueProduct = valueProduct;

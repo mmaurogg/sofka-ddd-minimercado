@@ -2,11 +2,8 @@ package org.example.minimarker.invoice.commands;
 
 import co.com.sofka.domain.generic.Command;
 import org.example.minimarker.client.values.ClientId;
-import org.example.minimarker.invoice.Assessor;
-import org.example.minimarker.invoice.values.AssessorId;
 import org.example.minimarker.invoice.values.InvoiceId;
 import org.example.minimarker.invoice.values.NameAssessor;
-import org.example.minimarker.invoice.values.SaleId;
 
 public class CreateInvoiceCommand extends Command {
 

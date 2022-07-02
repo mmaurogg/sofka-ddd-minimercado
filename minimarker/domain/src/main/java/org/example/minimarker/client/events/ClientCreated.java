@@ -2,23 +2,33 @@ package org.example.minimarker.client.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import org.example.minimarker.client.Location;
+import org.example.minimarker.client.values.Address;
+import org.example.minimarker.client.values.LocationId;
 import org.example.minimarker.client.values.NameClient;
 
 public class ClientCreated extends DomainEvent {
-    private final NameClient name;
-    private final Location location;
 
-    public ClientCreated(NameClient name, Location location) {
+    private final NameClient name;
+    private final LocationId locationId;
+    private final Address address;
+
+    public ClientCreated(NameClient name, LocationId locationId, Address address) {
         super("sofka.client.clientcreated");
+
         this.name = name;
-        this.location = location;
+        this.locationId = locationId;
+        this.address = address;
     }
 
-    public NameClient name() {
+    public NameClient getName() {
         return name;
     }
 
-    public Location location() {
-        return location;
+    public LocationId getLocationId() {
+        return locationId;
+    }
+
+    public Address getAddress() {
+        return address;
     }
 }

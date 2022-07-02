@@ -1,4 +1,4 @@
-package org.example.minimarker.client.invoice.usecase;
+package org.example.minimarker.invoice.usecase;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -6,15 +6,17 @@ import co.com.sofka.business.support.RequestCommand;
 import org.example.minimarker.client.values.ClientId;
 import org.example.minimarker.invoice.commands.CreateInvoiceCommand;
 import org.example.minimarker.invoice.events.InvoiceCreated;
+import org.example.minimarker.invoice.values.Date;
 import org.example.minimarker.invoice.values.InvoiceId;
 import org.example.minimarker.invoice.values.NameAssessor;
-import org.example.minimarker.invoice.usecase.CreateInvoiceUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static java.time.LocalDate.now;
 
 
 @ExtendWith(MockitoExtension.class)
