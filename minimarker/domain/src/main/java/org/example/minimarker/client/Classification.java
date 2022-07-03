@@ -15,14 +15,13 @@ public class Classification extends Entity<ClassificationId> {
         super(entityId);
         this.score = new Score(0.0);
     }
-    public void updateCategory(){
+    private void updateCategory(){
         this.category = new Category(categorize());
     }
 
-    public void updateScore(Score score) throws IllegalAccessException {
-        Objects.requireNonNull(score);
-        Double newScore = this.score().value() + score.value();
-        this.score = new Score(newScore);
+    public void updateScore(Score score) {
+        this.score = new Score(score.value());
+        updateCategory();
     }
 
     private String categorize () {

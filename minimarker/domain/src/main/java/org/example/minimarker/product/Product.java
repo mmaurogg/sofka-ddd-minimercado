@@ -44,8 +44,6 @@ public class Product extends AggregateEvent<ProductId> {
         appendChange(new SKUAdded(skuId, place, stock)).apply();
     }
 
-
-
     public void updateNameOfSupplier(SupplierId supplierId, Name name){
         Objects.requireNonNull(name);
         appendChange(new NameOfSupplierUpdated(supplierId, name)).apply();

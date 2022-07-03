@@ -7,11 +7,11 @@ public class NameUpdated extends DomainEvent {
     private final NameClient name;
 
     public NameUpdated(NameClient name) {
-        super("sofka.client.nameupdated");
+        super("org.example.minimarker.client.nameupdated");
         this.name = name;
     }
 
-    public NameClient name() {
+    public NameClient nameClient() {
         return name;
     }
 }

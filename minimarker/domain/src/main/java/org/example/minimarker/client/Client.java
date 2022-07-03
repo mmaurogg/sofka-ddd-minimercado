@@ -37,9 +37,10 @@ public class Client extends AggregateEvent<ClientId> {
         Objects.requireNonNull(type);
         appendChange(new AccountAdded(number, type)).apply();
     }
-    public void calculateScore(ClassificationId classificationId, Score score){
-        Objects.requireNonNull(score);
-        appendChange(new ScoreCalculated(classificationId, score)).apply();
+
+    public void updateAddressInLocation(LocationId locationId, Address address){
+        Objects.requireNonNull(address);
+        appendChange(new AddressInLocationUpdated(locationId, address)).apply();
     }
 
     public void updateName (NameClient name){
@@ -57,14 +58,9 @@ public class Client extends AggregateEvent<ClientId> {
         appendChange(new CreditBalanceUpdated(creditId, balance)).apply();
     }
 
-    public void addAddressInLocation(LocationId locationId, Address address){
-        Objects.requireNonNull(address);
-        appendChange(new AddressInLocationAdded(locationId, address)).apply();
-    }
-
-    public void updateAddressInLocation(LocationId locationId, Address address){
-        Objects.requireNonNull(address);
-        appendChange(new AddressInLocationUpdated(locationId, address)).apply();
+    public void calculateScore(ClassificationId classificationId, Score score){
+        Objects.requireNonNull(score);
+        appendChange(new ScoreCalculated(classificationId, score)).apply();
     }
 
 }

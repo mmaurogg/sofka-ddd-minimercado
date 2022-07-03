@@ -8,7 +8,7 @@ public class AccountAdded extends DomainEvent {
     private final String type;
 
     public AccountAdded(String number, String type) {
-        super("sofka.client.accountadded");
+        super("org.example.minimarker.client.accountadded");
 
         this.number = number;
         this.type = type;

@@ -2,10 +2,7 @@ package org.example.minimarker.client;
 
 import co.com.sofka.domain.generic.EventChange;
 import org.example.minimarker.client.events.*;
-import org.example.minimarker.client.values.Account;
-import org.example.minimarker.client.values.Amount;
-import org.example.minimarker.client.values.ClassificationId;
-import org.example.minimarker.client.values.CreditId;
+import org.example.minimarker.client.values.*;
 
 import java.util.Objects;
 
@@ -25,35 +22,33 @@ public class ClienChange extends EventChange {
             }
         });
 
-        apply((ScoreCalculated event) ->{
-            client.calculateScore(event.classificationId(), event.score());
-        });
-
         apply((AccountAdded event)->{
-            client.addAccount(event.number(), event.type());
-
-        });
-
-        apply((AddressInLocationAdded event)->{
-            client.addAddressInLocation(event.locationId(), event.address());
+            try {
+                client.account = new Account(event.number(), event.type());
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         apply((AddressInLocationUpdated event)->{
-            client.updateAddressInLocation(event.locationId(),event.address());
+            client.location.updateLocation(event.address());
         });
 
         apply((NameUpdated event)->{
-            client.updateName(event.name());
+            client.name = new NameClient(event.nameClient().value());
         });
 
         apply((CreditAmountUpdated event)->{
-            client.updateCreditAmount(event.creditId(), event.amount());
+            client.credit.updateAmount(event.amount());
         });
 
         apply((CreditBalanceUpdated event)->{
-            client.updateCreditBalance(event.creditId(), event.balance());
+            client.credit.updateBalance(event.balance());
         });
 
+        apply((ScoreCalculated event) ->{
+            client.classification.updateScore(event.score());
+        });
     }
 
 }

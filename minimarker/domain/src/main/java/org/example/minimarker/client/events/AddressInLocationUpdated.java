@@ -9,7 +9,7 @@ public class AddressInLocationUpdated extends DomainEvent {
     private final Address address;
 
     public AddressInLocationUpdated(LocationId locationId, Address address) {
-        super("sofka.client.addressinlocationupdated");
+        super("org.example.minimarker.client.addressinlocationupdated");
         this.locationId = locationId;
         this.address = address;
     }

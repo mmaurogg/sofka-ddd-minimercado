@@ -9,7 +9,7 @@ public class ScoreCalculated extends DomainEvent {
     private final Score score;
 
     public ScoreCalculated(ClassificationId classificationId, Score score) {
-        super("sofka.client.scorecalculated");
+        super("org.example.minimarker.client.scorecalculated");
         this.classificationId = classificationId;
         this.score = score;
     }

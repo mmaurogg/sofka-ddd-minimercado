@@ -9,7 +9,7 @@ public class CreditAmountUpdated extends DomainEvent {
     private final Amount amount;
 
     public CreditAmountUpdated(CreditId creditId, Amount amount) {
-        super("sofka.client.creditamountupdated");
+        super("org.example.minimarker.client.creditamountupdated");
         this.creditId = creditId;
         this.amount = amount;
     }

@@ -8,11 +8,8 @@ public class Score implements ValueObject<Double> {
 
     private final Double score;
 
-    public Score(Double score) throws IllegalAccessException {
+    public Score(Double score) {
         this.score = Objects.requireNonNull(score);
-        if(score < 0 ){
-            throw new IllegalAccessException("El puntaje no puede ser inferior a cero");
-        }
     }
     @Override
     public Double value() {

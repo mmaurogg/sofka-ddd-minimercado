@@ -14,7 +14,7 @@ public class UpdateNameCommand extends Command {
         this.name = name;
     }
 
-    public NameClient getName() {
+    public NameClient getNameClient() {
         return name;
     }
 

@@ -5,12 +5,12 @@ import org.example.minimarker.client.values.Address;
 import org.example.minimarker.client.values.ClientId;
 import org.example.minimarker.client.values.LocationId;
 
-public class UdateAddressInLocationCommand extends Command {
+public class UpdateAddressInLocationCommand extends Command {
     private final ClientId clientId;
     private final LocationId locationId;
     private final Address address;
 
-    public UdateAddressInLocationCommand(ClientId clientId, LocationId locationId, Address address) {
+    public UpdateAddressInLocationCommand(ClientId clientId, LocationId locationId, Address address) {
         this.clientId = clientId;
         this.locationId = locationId;
         this.address = address;

@@ -9,7 +9,7 @@ public class CreditBalanceUpdated extends DomainEvent {
     private final Balance balance;
 
     public CreditBalanceUpdated(CreditId creditId, Balance balance) {
-        super("sofka.client.creditbalanceupdated");
+        super("org.example.minimarker.client.creditbalanceupdated");
         this.creditId = creditId;
         this.balance = balance;
     }
