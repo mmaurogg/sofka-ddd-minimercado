@@ -14,7 +14,7 @@ public class NameOfSupplierUpdated extends DomainEvent {
         this.name = name;
     }
 
-    public Name name() {
+    public Name nameSupplier() {
         return name;
     }
 

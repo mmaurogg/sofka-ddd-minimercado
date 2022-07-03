@@ -10,8 +10,8 @@ import java.util.Objects;
 
 public class Product extends AggregateEvent<ProductId> {
 
-    protected Name name;
     protected Supplier supplier;
+    protected Name nameProduct;
     protected ValueProduct valueProduct;
     protected Category category;
     protected SKU sku;
@@ -27,12 +27,10 @@ public class Product extends AggregateEvent<ProductId> {
         return product;
     }
 
-    public Product(ProductId productId, Name name, ValueProduct valueProduct) {
+    public Product(ProductId productId, SupplierId supplierId, Name nameSupplier, Name nameProduct, ValueProduct valueProduct) {
         super(productId);
-        this.name = name;
-        this.valueProduct = valueProduct;
+        appendChange(new ProductCreated(supplierId, nameSupplier, nameProduct, valueProduct)).apply();
         subscribe(new productChange(this));
-        appendChange(new  ProductCreated(productId, name, valueProduct));
     }
 
     public void updateNameOfSupplier(SupplierId supplierId, Name name){
@@ -50,23 +48,7 @@ public class Product extends AggregateEvent<ProductId> {
         appendChange(new StockOfSKUUpdated(skuId, stock)).apply();
     }
 
-    public Name name() {
-        return name;
-    }
-
-    public Supplier supplier() {
-        return supplier;
-    }
-
-    public ValueProduct valueProduct() {
+    public ValueProduct getValueProduct() {
         return valueProduct;
-    }
-
-    public Category category() {
-        return category;
-    }
-
-    public SKU sku() {
-        return sku;
     }
 }

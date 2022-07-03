@@ -48,11 +48,11 @@ public class InvoiceChange  extends EventChange {
         });
 
         apply((ProductToSaleAdded event)->{
-            invoice.addProductToSale(event.saleId(), event.product());
+            invoice.sale.addProduct(event.product());
         });
 
         apply((ProductOfSaleSubstracted event)->{
-            invoice.substractProductOfSale(event.saleId(), event.product());
+            invoice.sale.substractProduct( event.product().identity());
         });
 
         apply((ValueSaleCalculated event)->{

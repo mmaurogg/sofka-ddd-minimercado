@@ -6,15 +6,14 @@ import org.example.minimarker.product.values.ProductId;
 import org.example.minimarker.product.values.SupplierId;
 
 public class UpdateNameOfSupplierCommand extends Command {
-
     private final ProductId productId;
     private final SupplierId supplierId;
-    private final Name name;
+    private final Name nameSupplier;
 
-    public UpdateNameOfSupplierCommand(ProductId productId, SupplierId supplierId, Name name) {
+    public UpdateNameOfSupplierCommand(ProductId productId, SupplierId supplierId, Name nameSupplier) {
         this.productId = productId;
         this.supplierId = supplierId;
-        this.name = name;
+        this.nameSupplier = nameSupplier;
     }
 
     public ProductId getProductId() {
@@ -25,7 +24,7 @@ public class UpdateNameOfSupplierCommand extends Command {
         return supplierId;
     }
 
-    public Name getName() {
-        return name;
+    public Name getNameSupplier() {
+        return nameSupplier;
     }
 }

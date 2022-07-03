@@ -8,12 +8,14 @@ import org.example.minimarker.product.values.ValueProduct;
 public class CreateProductCommand extends Command {
 
     private final ProductId productId;
-    private final Name name;
+    private final Name nameSupplier;
+    private final Name nameProduct;
     private final ValueProduct valueProduct;
 
-    public CreateProductCommand(ProductId productId, Name name, ValueProduct valueProduct) {
+    public CreateProductCommand(ProductId productId, Name nameSupplier, Name nameProduct, ValueProduct valueProduct){
         this.productId = productId;
-        this.name = name;
+        this.nameSupplier = nameSupplier;
+        this.nameProduct = nameProduct;
         this.valueProduct = valueProduct;
     }
 
@@ -21,8 +23,12 @@ public class CreateProductCommand extends Command {
         return productId;
     }
 
-    public Name getName() {
-        return name;
+    public Name getNameSupplier() {
+        return nameSupplier;
+    }
+
+    public Name getNameProduct() {
+        return nameProduct;
     }
 
     public ValueProduct getValueProduct() {

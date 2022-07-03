@@ -21,7 +21,7 @@ public class Sale extends Entity<SaleId> {
         this.value = new Value(0.0);
     }
 
-    public Optional<Product> getProductById(ProductId productId){
+    private Optional<Product> getProductById(ProductId productId){
         return products()
                 .stream()
                 .filter(product -> product.identity().equals(productId))
@@ -39,13 +39,13 @@ public class Sale extends Entity<SaleId> {
         products().remove(product);
     }
 
-    public void calculateValue (){
-        var sumValue = this.products
-                .stream()
-                .map(product -> product.valueProduct().value())
-                .mapToDouble(value -> value).sum();
-        this.value = new Value(sumValue);
-    }
+    //public void calculateValue (){
+        //var sumValue = this.products
+        //        .stream()
+        //        .map(product -> product.getValueProduct().value())
+        //        .mapToDouble(value -> value).sum();
+        //this.value = new Value(sumValue);
+    //}
 
     public Value value() {
         return value;
