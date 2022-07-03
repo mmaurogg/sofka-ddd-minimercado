@@ -13,7 +13,7 @@ public class SKUAdded extends DomainEvent {
     private final Stock stock;
 
     public SKUAdded(SKUId skuId, Place place, Stock stock) {
-        super("sofka.product.skuadded");
+        super("org.example.minimarker.product.skuadded");
 
         this.skuId = skuId;
         this.place = place;

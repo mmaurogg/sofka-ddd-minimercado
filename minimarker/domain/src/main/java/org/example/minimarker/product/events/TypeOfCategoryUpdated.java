@@ -9,7 +9,7 @@ public class TypeOfCategoryUpdated extends DomainEvent {
     private final TypeProduct typeProduct;
 
     public TypeOfCategoryUpdated(CategoryId categoryId, TypeProduct typeProduct) {
-        super("sofka.product.typeofcategoryupdated");
+        super("org.example.minimarker.product.typeofcategoryupdated");
         this.categoryId = categoryId;
         this.typeProduct = typeProduct;
     }

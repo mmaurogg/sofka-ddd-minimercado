@@ -49,7 +49,7 @@ class UpdateNameOfSupplierUseCaseTest {
                 .getDomainEvents();
 
         var event = (NameOfSupplierUpdated)events.get(0);
-        Assertions.assertEquals("NewSupplierName", command.getNameSupplier());
+        Assertions.assertEquals("NewSupplierName", event.nameSupplier().value());
 
     }
 

@@ -9,7 +9,7 @@ public class StockOfSKUUpdated extends DomainEvent {
     private final Stock stock;
 
     public StockOfSKUUpdated(SKUId skuId, Stock stock) {
-        super("sofka.product.stockofskuupdated");
+        super("org.example.minimarker.product.stockofskuupdated");
         this.skuId = skuId;
         this.stock = stock;
     }

@@ -12,7 +12,7 @@ public class ProductCreated extends DomainEvent {
     private final ValueProduct valueProduct;
 
     public ProductCreated(SupplierId supplierId, Name nameSupplier, Name nameProduct, ValueProduct valueProduct) {
-        super("sofka.product.productcreated");
+        super("org.example.minimarker.product.productcreated");
         this.supplierId = supplierId;
         this.nameSupplier = nameSupplier;
         this.nameProduct = nameProduct;

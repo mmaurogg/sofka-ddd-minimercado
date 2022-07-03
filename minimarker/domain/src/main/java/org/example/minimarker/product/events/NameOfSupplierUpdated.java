@@ -9,7 +9,7 @@ public class NameOfSupplierUpdated extends DomainEvent {
     private final Name name;
 
     public NameOfSupplierUpdated(SupplierId supplierId, Name name) {
-        super("sofka.product.nameofsupplierupdated");
+        super("org.example.minimarker.product.nameofsupplierupdated");
         this.supplierId = supplierId;
         this.name = name;
     }

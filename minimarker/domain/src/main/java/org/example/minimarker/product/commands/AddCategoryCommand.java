@@ -8,12 +8,12 @@ import org.example.minimarker.product.values.TypeProduct;
 public class AddCategoryCommand extends Command {
 
     private final ProductId productId;
-    private final CategoryId entityId;
+    private final CategoryId categoryId;
     private final TypeProduct typeProduct;
 
-    public AddCategoryCommand(ProductId productId, CategoryId entityId, TypeProduct typeProduct) {
+    public AddCategoryCommand(ProductId productId, CategoryId categoryId, TypeProduct typeProduct) {
         this.productId = productId;
-        this.entityId = entityId;
+        this.categoryId = categoryId;
         this.typeProduct = typeProduct;
     }
 
@@ -21,8 +21,8 @@ public class AddCategoryCommand extends Command {
         return productId;
     }
 
-    public CategoryId getEntityId() {
-        return entityId;
+    public CategoryId getCategoryId() {
+        return categoryId;
     }
 
     public TypeProduct getTypeProduct() {

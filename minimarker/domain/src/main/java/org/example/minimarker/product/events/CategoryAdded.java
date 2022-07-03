@@ -10,7 +10,7 @@ public class CategoryAdded extends DomainEvent {
     private final TypeProduct typeProduct;
 
     public CategoryAdded(CategoryId categoryId, TypeProduct typeProduct) {
-        super("sofka.product.categoryadded");
+        super("org.example.minimarker.product.categoryadded");
         this.categoryId = categoryId;
         this.typeProduct = typeProduct;
     }

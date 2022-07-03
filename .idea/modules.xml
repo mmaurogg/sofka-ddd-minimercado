@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/minimarker/business/business.iml" filepath="$PROJECT_DIR$/minimarker/business/business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/minimarker/domain/domain.iml" filepath="$PROJECT_DIR$/minimarker/domain/domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/minimarker/minimarker.iml" filepath="$PROJECT_DIR$/minimarker/minimarker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sofka-ddd-minimercado.iml" filepath="$PROJECT_DIR$/.idea/sofka-ddd-minimercado.iml" />
+    </modules>
+  </component>
+</project>

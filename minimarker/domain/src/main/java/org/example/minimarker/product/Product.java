@@ -33,6 +33,19 @@ public class Product extends AggregateEvent<ProductId> {
         subscribe(new productChange(this));
     }
 
+    public void AddCategory(CategoryId categoryId, TypeProduct typeProduct){
+        Objects.requireNonNull(typeProduct);
+        appendChange(new CategoryAdded(categoryId, typeProduct)).apply();
+    }
+
+    public void AddSKU(SKUId skuId, Place place, Stock stock){
+        Objects.requireNonNull(place);
+        Objects.requireNonNull(stock);
+        appendChange(new SKUAdded(skuId, place, stock)).apply();
+    }
+
+
+
     public void updateNameOfSupplier(SupplierId supplierId, Name name){
         Objects.requireNonNull(name);
         appendChange(new NameOfSupplierUpdated(supplierId, name)).apply();
