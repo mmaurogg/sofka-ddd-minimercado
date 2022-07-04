@@ -11,8 +11,8 @@ El proyecto simula un minimercado específicamente en el área de ventas que con
 ## Proceso
 1. Los productos y los clientes deben ser creadas primero de fomra individual.
 2. La factura se puede crear con estos dos elementos mas otros que esta pueda necesitar.
-3. cada producto es añadido o retirado de la cuenta de la factura que se encuentra en la entidad venta (sale).
-4. cuando todos los productos se encuentran en la factura se puede calcular su valor el cual es un evento y se encuentra en su test del pago creado.
+3. Cada producto es añadido o retirado de la cuenta de la factura que se encuentra en la entidad venta (sale).
+4. Cuando todos los productos se encuentran en la factura se puede calcular su valor el cual es un evento y se encuentra en su test del pago creado.
 
 ## Raices Agregadas
 * Cliente (client).
@@ -22,8 +22,8 @@ El proyecto simula un minimercado específicamente en el área de ventas que con
 # Test
 Los test de eventos se realizaron sobre el envio de dos correos:
  * Cuando el cliente es creado.
- * cuando el cliente paga la factura.
+ * Cuando el cliente paga la factura.
 
 Otros test:
-* creacion u actualizacion de componentes de las Raices Agregadas
+* Creacion o actualizacion de componentes de las Raices Agregadas.
 
