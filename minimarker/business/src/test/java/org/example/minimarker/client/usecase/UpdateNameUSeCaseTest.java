@@ -11,7 +11,6 @@ import org.example.minimarker.client.values.Address;
 import org.example.minimarker.client.values.ClientId;
 import org.example.minimarker.client.values.LocationId;
 import org.example.minimarker.client.values.NameClient;
-import org.example.minimarker.product.values.Name;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +20,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,7 +29,7 @@ class UpdateNameUSeCaseTest {
     DomainEventRepository repository;
 
     @InjectMocks
-    UpdateNameUSeCase useCase;
+    UpdateNameUseCase useCase;
 
     @Test
     public void whenNameOfClientIsUpdated(){

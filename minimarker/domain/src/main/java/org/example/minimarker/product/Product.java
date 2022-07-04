@@ -59,7 +59,4 @@ public class Product extends AggregateEvent<ProductId> {
         appendChange(new StockOfSKUUpdated(skuId, stock)).apply();
     }
 
-    public ValueProduct getValueProduct() {
-        return valueProduct;
-    }
 }

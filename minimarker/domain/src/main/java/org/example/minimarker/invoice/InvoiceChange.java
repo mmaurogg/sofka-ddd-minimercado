@@ -17,11 +17,7 @@ public class InvoiceChange  extends EventChange {
             invoice.clientId = event.clientId();
         });
 
-        apply((AssesorNameUpdated event)->{
-            invoice.updateAssesorName(event.assessorId(), event.name());
-        });
-
-        apply((PaymentAdded event)->{
+        apply((PaymentAdded event) -> {
             invoice.payment = new Payment(event.paymentId(), event.method(), event.value());
         });
 
@@ -33,7 +29,7 @@ public class InvoiceChange  extends EventChange {
                     throw new RuntimeException(e);
                 }
             }
-            invoice.updatePaymentMethod(event.paymentId(), event.method());
+            invoice.payment.updateMethod(event.method());
         });
 
         apply((PaymentValueUpdated event)->{
@@ -44,19 +40,23 @@ public class InvoiceChange  extends EventChange {
                     throw new RuntimeException(e);
                 }
             }
-            invoice.updatePaymentValue(event.paymentId(), event.value());
+            invoice.payment.updateValue(event.value());
+        });
+
+        apply((AssesorNameUpdated event)->{
+            invoice.assessor.updateName(event.name());
         });
 
         apply((ProductToSaleAdded event)->{
-            invoice.sale.addProduct(event.product());
+            invoice.sale.addProduct(event.productId(), event.getValueProduct());
         });
 
         apply((ProductOfSaleSubstracted event)->{
-            invoice.sale.substractProduct( event.product().identity());
+            invoice.sale.substractProduct( event.productId());
         });
 
         apply((ValueSaleCalculated event)->{
-            invoice.calculateValueSale(event.saleId());
+            invoice.sale.calculateValue();
         });
 
     }

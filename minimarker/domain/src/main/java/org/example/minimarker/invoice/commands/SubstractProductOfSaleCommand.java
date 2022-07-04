@@ -3,18 +3,18 @@ package org.example.minimarker.invoice.commands;
 import co.com.sofka.domain.generic.Command;
 import org.example.minimarker.invoice.values.InvoiceId;
 import org.example.minimarker.invoice.values.SaleId;
-import org.example.minimarker.product.Product;
+import org.example.minimarker.product.values.ProductId;
 
 public class SubstractProductOfSaleCommand extends Command {
 
     private final InvoiceId invoiceId;
     private final SaleId saleId;
-    private final Product product;
+    private final ProductId productId;
 
-    public SubstractProductOfSaleCommand(InvoiceId invoiceId, SaleId saleId, Product product) {
+    public SubstractProductOfSaleCommand(InvoiceId invoiceId, SaleId saleId, ProductId productId) {
         this.invoiceId = invoiceId;
         this.saleId = saleId;
-        this.product = product;
+        this.productId = productId;
     }
 
     public InvoiceId getInvoiceId() {
@@ -25,7 +25,7 @@ public class SubstractProductOfSaleCommand extends Command {
         return saleId;
     }
 
-    public Product getProduct() {
-        return product;
+    public ProductId getProductId() {
+        return productId;
     }
 }

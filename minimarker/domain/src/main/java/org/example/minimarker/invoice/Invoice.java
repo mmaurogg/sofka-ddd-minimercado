@@ -6,6 +6,8 @@ import org.example.minimarker.client.values.ClientId;
 import org.example.minimarker.invoice.events.*;
 import org.example.minimarker.invoice.values.*;
 import org.example.minimarker.product.Product;
+import org.example.minimarker.product.values.ProductId;
+import org.example.minimarker.product.values.ValueProduct;
 
 import java.util.List;
 import java.util.Objects;
@@ -34,17 +36,24 @@ public class Invoice extends AggregateEvent<InvoiceId> {
         subscribe(new InvoiceChange(this));
     }
 
-    public void calculateValueSale(SaleId saleId){
-        appendChange(new ValueSaleCalculated(saleId)).apply();
+    public void addPayment(PaymentId paymentId, Method method, Value value){
+        Objects.requireNonNull(method);
+        Objects.requireNonNull(value);
+        appendChange(new PaymentAdded(paymentId, method, value)).apply();
     }
 
-    public void addProductToSale(SaleId saleId, Product product){
-        Objects.requireNonNull(product);
-        appendChange(new ProductToSaleAdded(saleId, product)).apply();
+    public void updatePaymentMethod(PaymentId paymentId, Method method){
+        Objects.requireNonNull(method);
+        appendChange(new PaymentMethodUpdated(paymentId, method)).apply();
     }
-    public void substractProductOfSale(SaleId saleId, Product product){
-        Objects.requireNonNull(product);
-        appendChange(new ProductOfSaleSubstracted(saleId, product)).apply();
+
+    public void addProductToSale(SaleId saleId, ProductId productId, ValueProduct valueProduct){
+        Objects.requireNonNull(productId);
+        appendChange(new ProductToSaleAdded(saleId, productId, valueProduct)).apply();
+    }
+    public void substractProductOfSale(SaleId saleId, ProductId productId){
+        Objects.requireNonNull(productId);
+        appendChange(new ProductOfSaleSubstracted(saleId, productId)).apply();
     }
     public void updateAssesorName(AssessorId assessorId, NameAssessor name){
         Objects.requireNonNull(name);
@@ -56,9 +65,9 @@ public class Invoice extends AggregateEvent<InvoiceId> {
         appendChange(new PaymentValueUpdated(paymentId, value)).apply();
     }
 
-    public void updatePaymentMethod(PaymentId paymentId, Method method){
-        Objects.requireNonNull(method);
-        appendChange(new PaymentMethodUpdated(paymentId, method)).apply();
+    public void calculateValueSale(SaleId saleId){
+        appendChange(new ValueSaleCalculated(saleId)).apply();
     }
+
 
 }

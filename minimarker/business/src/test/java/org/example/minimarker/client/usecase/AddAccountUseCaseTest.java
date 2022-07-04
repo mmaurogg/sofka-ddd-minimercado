@@ -4,6 +4,7 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
+
 import org.example.minimarker.client.commands.AddAccountCommand;
 import org.example.minimarker.client.events.AccountAdded;
 import org.example.minimarker.client.events.ClientCreated;
@@ -11,6 +12,7 @@ import org.example.minimarker.client.values.Address;
 import org.example.minimarker.client.values.ClientId;
 import org.example.minimarker.client.values.LocationId;
 import org.example.minimarker.client.values.NameClient;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

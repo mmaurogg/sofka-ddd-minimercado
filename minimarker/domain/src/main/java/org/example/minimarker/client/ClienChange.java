@@ -4,8 +4,6 @@ import co.com.sofka.domain.generic.EventChange;
 import org.example.minimarker.client.events.*;
 import org.example.minimarker.client.values.*;
 
-import java.util.Objects;
-
 public class ClienChange extends EventChange {
 
     public ClienChange(Client client){

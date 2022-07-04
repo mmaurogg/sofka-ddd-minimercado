@@ -2,56 +2,50 @@ package org.example.minimarker.invoice;
 
 import co.com.sofka.domain.generic.Entity;
 import org.example.minimarker.invoice.values.*;
-import org.example.minimarker.product.Product;
 import org.example.minimarker.product.values.ProductId;
+import org.example.minimarker.product.values.ValueProduct;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 public class Sale extends Entity<SaleId> {
 
     private Value value;
-    private Set<Product> products;
+    private Map<ProductId, ValueProduct> products;
 
     public Sale(SaleId entityId) {
         super(entityId);
-        this.products = new HashSet<>();
+        this.products = new HashMap<>();
         this.value = new Value(0.0);
     }
 
-    private Optional<Product> getProductById(ProductId productId){
-        return products()
-                .stream()
-                .filter(product -> product.identity().equals(productId))
-                .findFirst();
-    }
-
-    public void addProduct(Product product){
-        Objects.requireNonNull(product);
-        this.products.add(product);
+    public void addProduct(ProductId productId, ValueProduct valueProduct){
+        Objects.requireNonNull(productId);
+        Objects.requireNonNull(valueProduct);
+        this.products.put(productId, valueProduct);
     }
 
     public void substractProduct(ProductId productId){
-        Product product = getProductById(productId)
-                .orElseThrow(() -> new IllegalArgumentException("No se encuentra el producto"));
-        products().remove(product);
+        var product = products.get(productId);
+        if (product == null){
+            throw new IllegalArgumentException("No se encuentra ese producto en la lista");
+        }
+        products.remove(product);
+
     }
 
-    //public void calculateValue (){
-        //var sumValue = this.products
-        //        .stream()
-        //        .map(product -> product.getValueProduct().value())
-        //        .mapToDouble(value -> value).sum();
-        //this.value = new Value(sumValue);
-    //}
+    public void calculateValue (){
+        Double sumValue = 0.0;
+        for (int i = 0; i < this.products.size(); i++) {
+            sumValue += this.products.get(i).value();
+        }
+        this.value = new Value(sumValue);
+    }
 
     public Value value() {
         return value;
     }
 
-    public Set<Product> products() {
+    public Map<ProductId, ValueProduct> products() {
         return products;
     }
 }
