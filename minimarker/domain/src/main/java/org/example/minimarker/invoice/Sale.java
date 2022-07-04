@@ -34,10 +34,11 @@ public class Sale extends Entity<SaleId> {
     }
 
     public void calculateValue (){
-        Double sumValue = 0.0;
-        for (int i = 0; i < this.products.size(); i++) {
-            sumValue += this.products.get(i).value();
-        }
+        Double sumValue = products.values()
+                .stream()
+                .map(valueProduct -> valueProduct.value())
+                .mapToDouble(Double::doubleValue)
+                .sum();
         this.value = new Value(sumValue);
     }
 
