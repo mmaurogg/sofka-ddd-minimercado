@@ -2,6 +2,10 @@
 Repositorio para realizar la entrega del reto DDD para sofka
 
 # Proyecto
+
+El modelo del trabajo lo pueden consultar en este link: https://drive.google.com/file/d/1UMYimekha19b_svQKcho8alJOshNvUtv/view?usp=sharing
+Tenga en cuenta que está montado en Diagrams.net
+
 El proyecto simula un minimercado específicamente en el área de ventas que contiene:
 
 ## Proceso
@@ -14,9 +18,6 @@ El proyecto simula un minimercado específicamente en el área de ventas que con
 * Cliente (client).
 * Factura (invoice).
 * Producto (product).
-
-El modelo del trabajo lo pueden consultar en este link: https://drive.google.com/file/d/1UMYimekha19b_svQKcho8alJOshNvUtv/view?usp=sharing
-Tenga en cuenta que está montado en Diagrams.net
 
 # Test
 Los test de eventos se realizaron sobre el envio de dos correos:
